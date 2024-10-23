@@ -11,17 +11,23 @@ namespace EmployeeManagement.Api.Controllers
     public class CompaniesController : ControllerBase
     {
         private readonly ICompanyService _companyService;
-
         public CompaniesController(ICompanyService companyService)
         {
             _companyService = companyService;
         }
 
         [HttpGet]
-
-        public async Task<IActionResult> GetAllCompanies(int pageNumber,int pageSize)
+        public async Task<IActionResult> GetAllCompanies()
         {
-            var datas = await _companyService.GetAllAsync(pageNumber,pageSize);
+            var datas = await _companyService.GetAllAsync();
+
+            return Ok(datas);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCompaniesWithPagination(int pageNumber,int pageSize)
+        {
+            var datas = await _companyService.GetAllWithPaginationAsync(pageNumber,pageSize);
 
             return Ok(datas);
         }
@@ -42,11 +48,8 @@ namespace EmployeeManagement.Api.Controllers
             CreateCompanyValidator validator = new CreateCompanyValidator();
             ValidationResult validationResult = validator.Validate(request);
 
-            if (!validationResult.IsValid)
-            {
-                return BadRequest(validationResult.Errors.Select(error => error.ErrorMessage).ToList());
-            }
-
+            if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
+         
             var data = await _companyService.GetSingleAsync(m => m.Name == request.Name);
 
             if (data is not null) return BadRequest(new { Message = "This Company Already Exists" });
@@ -63,16 +66,12 @@ namespace EmployeeManagement.Api.Controllers
             UpdateCompanyValidator validator = new UpdateCompanyValidator();
             ValidationResult validationResult = validator.Validate(request);
 
-            if (!validationResult.IsValid)
-            {
-                return BadRequest(validationResult.Errors.Select(error=>error.ErrorMessage).ToList());
-            }
+            if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
+
             var data = await _companyService.GetSingleAsync(m => m.Name == request.Name && m.Id != request.Id);
 
-            if (data is not null)
-            {
-                return BadRequest(new { Message = "This Company Already Exists" });
-            }
+            if (data is not null) return BadRequest(new { Message = "This Company Already Exists" });
+         
             var result = await _companyService.UpdateAsync(id, request);
 
             if (!result) return NotFound(new { Message = "Company Not Found" });

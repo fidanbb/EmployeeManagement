@@ -30,10 +30,18 @@ namespace EmployeeManagement.Application.Services
             await _companyRepository.SaveAsync();
         }
 
-        public async Task<Paginate<ResultCompanyDto>> GetAllAsync(int pageNumber, int pageSize)
+        public async Task<List<ResultCompanyDto>> GetAllAsync()
         {
-           var datas=await _companyRepository.GetAllAsync();
-           var mappedDatas=_mapper.Map<List<ResultCompanyDto>>(datas);
+           var datas = await _companyRepository.GetAllAsync();
+           var mappedDatas = _mapper.Map<List<ResultCompanyDto>>(datas);
+
+           return mappedDatas;
+        }
+
+        public async Task<Paginate<ResultCompanyDto>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
+        {
+           var datas = await _companyRepository.GetAllAsync();
+           var mappedDatas = _mapper.Map<List<ResultCompanyDto>>(datas);
 
            return _paginateRepository.PaginatedData(mappedDatas,pageNumber,pageSize);
 
@@ -57,13 +65,12 @@ namespace EmployeeManagement.Application.Services
            return _mapper.Map<ResultCompanyDto>(data);
         }
 
-        public async Task<Paginate<ResultCompanyDto>> GetWhereAsync(Expression<Func<Company, bool>> method, int pageNumber, int pageSize)
+        public async Task<List<ResultCompanyDto>> GetWhereAsync(Expression<Func<Company, bool>> method)
         {
-            var datas = await _companyRepository.GetWhereAsync(method);
-
-            var mappedDatas = _mapper.Map<List<ResultCompanyDto>>(datas);
-
-            return _paginateRepository.PaginatedData(mappedDatas, pageNumber, pageSize);
+           var datas = await _companyRepository.GetWhereAsync(method);
+           var mappedDatas = _mapper.Map<List<ResultCompanyDto>>(datas);
+           
+           return mappedDatas;
         }
 
         public async Task<bool> RemoveAsync(int id)

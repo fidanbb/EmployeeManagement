@@ -9,8 +9,10 @@ namespace EmployeeManagement.Persistence.Extensions
         public static IServiceCollection AddRepositoryLayer(this IServiceCollection services)
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped(typeof(IPaginateRepository<>), typeof(PaginateRepository<>));
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             return services;
         }

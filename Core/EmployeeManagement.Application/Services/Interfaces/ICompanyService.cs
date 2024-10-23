@@ -7,8 +7,9 @@ namespace EmployeeManagement.Application.Services.Interfaces
 {
     public interface ICompanyService
     {
-        Task<Paginate<ResultCompanyDto>> GetAllAsync(int pageNumber,int pageSize);
-        Task<Paginate<ResultCompanyDto>> GetWhereAsync(Expression<Func<Company, bool>> method, int pageNumber, int pageSize);
+        Task<Paginate<ResultCompanyDto>> GetAllWithPaginationAsync(int pageNumber,int pageSize);
+        Task<List<ResultCompanyDto>> GetAllAsync();
+        Task<List<ResultCompanyDto>> GetWhereAsync(Expression<Func<Company, bool>> method);
         Task<ResultCompanyDto> GetSingleAsync(Expression<Func<Company, bool>> method);
         Task<ResultCompanyDto> GetByIdAsync(int id);
         Task AddAsync(CreateCompanyDto model);

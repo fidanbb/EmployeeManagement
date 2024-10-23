@@ -9,6 +9,8 @@ namespace EmployeeManagement.Application.Extensions
         public static IServiceCollection AddServiceLayer(this IServiceCollection services)
         {
             services.AddScoped<ICompanyService, CompanyService>();  
+            services.AddScoped<IDepartmentService, DepartmentService>();  
+            services.AddScoped<IEmployeeService, EmployeeService>();  
 
             return services;
         }
