@@ -1,7 +1,7 @@
 # Employee Management API
 
 ## Overview
-This project is an ASP.NET Core 6.0-based backend API for managing employee data.It provides functionalities to list, filter, create, update, and delete employee records, along with associated departments and companies.
+This project is an ASP.NET Core 6.0-based backend API for managing employee data. It provides functionalities to list, filter, create, update, and delete employee records, along with associated departments and companies.
 
 ## Features
 - **Get All Employees**: Retrieve a list of all employees along with their department and company information.
@@ -25,7 +25,7 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
 - **Swagger**: For API documentation.
 
  ## Getting Started
-### Prerequisites
+ ### Prerequisites
 - [.NET SDK 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
@@ -35,12 +35,15 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
    
    ```bash
    git clone https://github.com/fidanbb/EmployeeManagement.git
+   
 2. **Set up the database:**
    
    Open the appsettings.Development.json file and configure the connection string:
    ```json
    "ConnectionStrings": {
-   "DefaultConnection": "Server=YOUR_SERVER;initial Catalog=EmployeeManagementDb;integrated Security=true; TrustServerCertificate=true;"    },
+   "DefaultConnection": "Server=YOUR_SERVER_NAME;initial Catalog=EmployeeManagementDb;integrated Security=true; TrustServerCertificate=true;"
+   },
+   
 3. **Restore Dependencies:**
    
    Ensure all required packages are installed:
@@ -61,12 +64,12 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
    ```bash
       dotnet ef database update
    
-6. **Build project:**
+6. **Build the project:**
    
    ```bash
      dotnet build
    
-7. **Run project:**
+7. **Run the project:**
    
    ```bash
      dotnet run
