@@ -51,25 +51,34 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
    ```bash
       dotnet restore
    
-4. **Change Directory:**
+4. **Build the project:**
+
+   Build the project to ensure everything compiles correctly:
+   
+   ```bash
+     dotnet build   
+   
+5. **Change Directory:**
    
    Navigate to the API Project directory and run the below command:
    ```bash
    cd Infrastructure/EmployeeManagement.Persistence
      
-5. **Apply Migrations:**
+6. **Apply Migrations:**
    
    Run the following command to apply migrations and create the database:
    
    ```bash
       dotnet ef database update
-   
-6. **Build the project:**
+
+7. **Build the project:**
+
+    Build the project again before running the project:
    
    ```bash
      dotnet build
    
-7. **Run the project:**
+8. **Run the project:**
    
    ```bash
      dotnet run
