@@ -4,6 +4,7 @@ using EmployeeManagement.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241024170415_added_configurations_for_tables")]
+    partial class added_configurations_for_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,8 +37,7 @@ namespace EmployeeManagement.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -46,37 +47,37 @@ namespace EmployeeManagement.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9144),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6521),
                             Name = "Pasha Bank"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9154),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6528),
                             Name = "Socar"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9155),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6529),
                             Name = "Azerenergy"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9157),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6530),
                             Name = "AzerGold"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9158),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6531),
                             Name = "Azersun Holding"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9159),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6531),
                             Name = "Azercell"
                         });
                 });
@@ -97,8 +98,7 @@ namespace EmployeeManagement.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -111,84 +111,84 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 1,
                             CompanyId = 1,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9382),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6660),
                             Name = "IT"
                         },
                         new
                         {
                             Id = 2,
                             CompanyId = 1,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9388),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6662),
                             Name = "HR"
                         },
                         new
                         {
                             Id = 3,
                             CompanyId = 2,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9390),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6663),
                             Name = "Marketing"
                         },
                         new
                         {
                             Id = 4,
                             CompanyId = 2,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9391),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6664),
                             Name = "Finance"
                         },
                         new
                         {
                             Id = 5,
                             CompanyId = 3,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9392),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6665),
                             Name = "R&D"
                         },
                         new
                         {
                             Id = 6,
                             CompanyId = 3,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9394),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6666),
                             Name = "Sales"
                         },
                         new
                         {
                             Id = 7,
                             CompanyId = 4,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9395),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6667),
                             Name = "Engineering"
                         },
                         new
                         {
                             Id = 8,
                             CompanyId = 4,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9397),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6667),
                             Name = "Production"
                         },
                         new
                         {
                             Id = 9,
                             CompanyId = 5,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9399),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6669),
                             Name = "Culinary"
                         },
                         new
                         {
                             Id = 10,
                             CompanyId = 5,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9400),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6670),
                             Name = "Supply Chain"
                         },
                         new
                         {
                             Id = 11,
                             CompanyId = 6,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9401),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6670),
                             Name = "Customer Service"
                         },
                         new
                         {
                             Id = 12,
                             CompanyId = 6,
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9403),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6671),
                             Name = "Business Development"
                         });
                 });
@@ -212,13 +212,11 @@ namespace EmployeeManagement.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -231,7 +229,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 1,
                             BirthDate = new DateTime(1985, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9436),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6697),
                             DepartmentId = 1,
                             Name = "Anar",
                             Surname = "Hüseynov"
@@ -240,7 +238,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 2,
                             BirthDate = new DateTime(1990, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9442),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6702),
                             DepartmentId = 2,
                             Name = "Aysel",
                             Surname = "Quliyeva"
@@ -249,7 +247,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 3,
                             BirthDate = new DateTime(2000, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9444),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6703),
                             DepartmentId = 3,
                             Name = "Murad",
                             Surname = "Əliyev"
@@ -258,7 +256,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 4,
                             BirthDate = new DateTime(1995, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9447),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6705),
                             DepartmentId = 1,
                             Name = "Nigar",
                             Surname = "Səfərova"
@@ -267,7 +265,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 5,
                             BirthDate = new DateTime(1992, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9449),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6707),
                             DepartmentId = 8,
                             Name = "Elvin",
                             Surname = "İsmayılov"
@@ -276,7 +274,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 6,
                             BirthDate = new DateTime(1996, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9451),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6708),
                             DepartmentId = 2,
                             Name = "Leyla",
                             Surname = "Əliyeva"
@@ -285,7 +283,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 7,
                             BirthDate = new DateTime(1987, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9453),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6709),
                             DepartmentId = 3,
                             Name = "Rəşad",
                             Surname = "Əhmədov"
@@ -294,7 +292,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 8,
                             BirthDate = new DateTime(1993, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9455),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6711),
                             DepartmentId = 4,
                             Name = "Günel",
                             Surname = "Əliyeva"
@@ -303,7 +301,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 9,
                             BirthDate = new DateTime(1984, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9457),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6712),
                             DepartmentId = 5,
                             Name = "Vüsal",
                             Surname = "Əkbərov"
@@ -312,7 +310,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 10,
                             BirthDate = new DateTime(1989, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9459),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6713),
                             DepartmentId = 6,
                             Name = "İlqar",
                             Surname = "Məmmədov"
@@ -321,7 +319,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 11,
                             BirthDate = new DateTime(1991, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9461),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6714),
                             DepartmentId = 7,
                             Name = "Sevinc",
                             Surname = "Rzayeva"
@@ -330,7 +328,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 12,
                             BirthDate = new DateTime(1983, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9464),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6715),
                             DepartmentId = 3,
                             Name = "Taleh",
                             Surname = "Qasımov"
@@ -339,7 +337,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 13,
                             BirthDate = new DateTime(1994, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9466),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6717),
                             DepartmentId = 11,
                             Name = "Zaur",
                             Surname = "Abdullayev"
@@ -348,7 +346,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 14,
                             BirthDate = new DateTime(1986, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9468),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6718),
                             DepartmentId = 4,
                             Name = "Kamran",
                             Surname = "Nəsibov"
@@ -357,7 +355,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 15,
                             BirthDate = new DateTime(1992, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9470),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6719),
                             DepartmentId = 12,
                             Name = "Elçin",
                             Surname = "Nəzərov"
@@ -366,7 +364,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 16,
                             BirthDate = new DateTime(1989, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9471),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6720),
                             DepartmentId = 2,
                             Name = "Aynur",
                             Surname = "Həsənova"
@@ -375,7 +373,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 17,
                             BirthDate = new DateTime(1985, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9473),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6721),
                             DepartmentId = 3,
                             Name = "Fuad",
                             Surname = "Babayev"
@@ -384,7 +382,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 18,
                             BirthDate = new DateTime(1982, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9475),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6723),
                             DepartmentId = 5,
                             Name = "Namiq",
                             Surname = "Əliyev"
@@ -393,7 +391,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 19,
                             BirthDate = new DateTime(1993, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9477),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6724),
                             DepartmentId = 4,
                             Name = "Orxan",
                             Surname = "Hüseynov"
@@ -402,7 +400,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 20,
                             BirthDate = new DateTime(1995, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9479),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6725),
                             DepartmentId = 1,
                             Name = "Rəna",
                             Surname = "Mustafayeva"
@@ -411,7 +409,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 22,
                             BirthDate = new DateTime(1984, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9481),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6726),
                             DepartmentId = 10,
                             Name = "Şəhriyar",
                             Surname = "Həsənov"
@@ -420,7 +418,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 23,
                             BirthDate = new DateTime(1988, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9483),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6727),
                             DepartmentId = 4,
                             Name = "Ülviyyə",
                             Surname = "İsmayılova"
@@ -429,7 +427,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 24,
                             BirthDate = new DateTime(1994, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9485),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6729),
                             DepartmentId = 5,
                             Name = "Toğrul",
                             Surname = "Hüseynov"
@@ -438,7 +436,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 25,
                             BirthDate = new DateTime(1986, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9487),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6730),
                             DepartmentId = 1,
                             Name = "Rəşad",
                             Surname = "Bayramov"
@@ -447,7 +445,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 26,
                             BirthDate = new DateTime(1991, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9489),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6731),
                             DepartmentId = 2,
                             Name = "Kənan",
                             Surname = "Cəfərov"
@@ -456,7 +454,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 27,
                             BirthDate = new DateTime(1987, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9491),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6732),
                             DepartmentId = 3,
                             Name = "Zəka",
                             Surname = "Mustafayev"
@@ -465,7 +463,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 28,
                             BirthDate = new DateTime(1993, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9493),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6733),
                             DepartmentId = 4,
                             Name = "Fərid",
                             Surname = "Xəlilov"
@@ -474,7 +472,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 29,
                             BirthDate = new DateTime(1985, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9495),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6734),
                             DepartmentId = 9,
                             Name = "Eldar",
                             Surname = "Salmanov"
@@ -483,7 +481,7 @@ namespace EmployeeManagement.Persistence.Migrations
                         {
                             Id = 30,
                             BirthDate = new DateTime(1992, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 24, 21, 14, 29, 222, DateTimeKind.Utc).AddTicks(9496),
+                            CreatedDate = new DateTime(2024, 10, 24, 21, 4, 15, 128, DateTimeKind.Utc).AddTicks(6736),
                             DepartmentId = 1,
                             Name = "Sabir",
                             Surname = "Babayev"

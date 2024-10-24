@@ -1,7 +1,7 @@
-﻿
-
+﻿using EmployeeManagement.Domain.Configurations;
 using EmployeeManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace EmployeeManagement.Persistence.Context
 {
@@ -15,16 +15,11 @@ namespace EmployeeManagement.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Department>()
-                 .HasOne(d => d.Company)
-                 .WithMany(c => c.Departments)
-                 .HasForeignKey(d => d.CompanyId);
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
 
-            modelBuilder.Entity<Employee>()
-               .HasOne(e => e.Department)
-               .WithMany(d => d.Employees)
-               .HasForeignKey(e => e.DepartmentId);
-
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Company>().HasData(
                   new Company { Id = 1, Name = "Pasha Bank" },

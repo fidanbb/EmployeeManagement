@@ -3,7 +3,6 @@ using EmployeeManagement.Application.Services.Interfaces;
 using EmployeeManagement.Application.Validators.EmployeeValidators;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace EmployeeManagement.Api.Controllers
 {
@@ -52,7 +51,7 @@ namespace EmployeeManagement.Api.Controllers
             return Ok(filteredDatas);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] 
         public async Task<IActionResult> GetEmployeeById([FromRoute] int id)
         {
             var data = await _employeeService.GetByIdAsync(id);

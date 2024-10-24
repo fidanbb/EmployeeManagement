@@ -37,6 +37,8 @@ app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<P
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllers();

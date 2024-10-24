@@ -45,7 +45,6 @@ namespace EmployeeManagement.Application.Services
             var mappedDatas = _mapper.Map<List<ResultEmployeeDto>>(datas);
 
             return _paginateRepository.PaginatedData(mappedDatas, pageNumber, pageSize);
-
         }
 
         public async Task<ResultEmployeeDto> GetByIdAsync(int id)
