@@ -55,7 +55,7 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
    
    Navigate to the API Project directory and run the below command:
    ```bash
-   cd Presentation/EmployeeManagement.Api
+   cd Infrastructure/EmployeeManagement.Persistence
      
 5. **Apply Migrations:**
    
