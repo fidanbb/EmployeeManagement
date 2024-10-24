@@ -22,8 +22,8 @@ namespace EmployeeManagement.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
-            var datas = await _employeeService.GetAllAsync();
 
+            var datas = await _employeeService.GetAllAsync();
             return Ok(datas);
         }
 
@@ -31,7 +31,6 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetEmployeesWithPagination(int pageNumber, int pageSize)
         {
             var datas = await _employeeService.GetAllWithPaginationAsync(pageNumber, pageSize);
-
             return Ok(datas);
         }
 
@@ -39,7 +38,8 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> FilterEmployees([FromQuery] EmployeeFilterDto filterDto)
         {
             if (filterDto.Name == null && filterDto.Surname == null
-                                      && filterDto.CompanyName == null && filterDto.DepartmentName == null)
+                                      && filterDto.CompanyName == null && filterDto.DepartmentName == null
+                                      && filterDto.CompanyId == null && filterDto.DepartmentId == null)
                 return BadRequest(new { Message = "At least one filter criterion is required. Please provide a name, surname, company name, or department name." });
 
             EmployeeFilterValidator validator = new EmployeeFilterValidator();
@@ -56,10 +56,7 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetEmployeeById([FromRoute] int id)
         {
             var data = await _employeeService.GetByIdAsync(id);
-
-            if (data == null) return NotFound(new { Message = "Employee Not Found" });
-
-            return Ok(data);
+            return data == null ? NotFound(new { Message = "Employee Not Found" }) : Ok(data);
         }
 
         [HttpPost]
@@ -94,9 +91,8 @@ namespace EmployeeManagement.Api.Controllers
 
             var result = await _employeeService.UpdateAsync(id, request);
 
-            if (!result) return NotFound(new { Message = "Employee Not Found" });
-
-            return Ok(new { Message = "Employee Updated Successfully" });
+            return result ? Ok(new { Message = "Employee Updated Successfully" }) 
+                          : NotFound(new { Message = "Employee Not Found" });
         }
 
         [HttpDelete("{id}")]
@@ -104,9 +100,8 @@ namespace EmployeeManagement.Api.Controllers
         {
             var result = await _employeeService.RemoveAsync(id);
 
-            if (!result) return NotFound(new { Message = "Employee Not Found" });
-
-            return Ok(new { Message = "Employee Deleted Successfully" });
+            return result ? Ok(new { Message = "Employee Deleted Successfully" }) 
+                          : NotFound(new { Message = "Employee Not Found" });
         }
     }
 }

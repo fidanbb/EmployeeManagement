@@ -36,10 +36,8 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetCompanyById([FromRoute] int id)
         {
             var data = await _companyService.GetByIdAsync(id);
+            return data == null ? NotFound(new { Message = "Company Not Found" }) : Ok(data);
 
-            if (data == null) return NotFound(new { Message = "Company Not Found" });
-
-            return Ok(data);
         }
 
         [HttpPost]
@@ -74,9 +72,8 @@ namespace EmployeeManagement.Api.Controllers
          
             var result = await _companyService.UpdateAsync(id, request);
 
-            if (!result) return NotFound(new { Message = "Company Not Found" });
-       
-            return Ok(new { Message = "Company Updated Successfully" });
+            return result ? Ok(new { Message = "Company Updated Successfully" })
+                           : NotFound(new { Message = "Company Not Found" });
         }
 
         [HttpDelete("{id}")]
@@ -84,9 +81,8 @@ namespace EmployeeManagement.Api.Controllers
         {
             var result = await _companyService.RemoveAsync(id);
 
-            if (!result) return NotFound(new { Message = "Company Not Found" });
-
-            return Ok(new { Message = "Company Deleted Successfully" });
+            return result ? Ok(new { Message = "Company Deleted Successfully" })
+                          : NotFound(new { Message = "Company Not Found" });      
         }
     }
 }

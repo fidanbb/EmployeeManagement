@@ -22,7 +22,6 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetAllDepartments()
         {
             var datas = await _departmentService.GetAllAsync();
-
             return Ok(datas);
         }
 
@@ -30,7 +29,6 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetDepartmentsWithPagination(int pageNumber, int pageSize)
         {
             var datas = await _departmentService.GetAllWithPaginationAsync(pageNumber, pageSize);
-
             return Ok(datas);
         }
 
@@ -38,10 +36,8 @@ namespace EmployeeManagement.Api.Controllers
         public async Task<IActionResult> GetDepartmentById([FromRoute] int id)
         {
             var data = await _departmentService.GetByIdAsync(id);
+            return data == null ? NotFound(new { Message = "Department Not Found" }) : Ok(data);
 
-            if (data == null) return NotFound(new { Message = "Department Not Found" });
-
-            return Ok(data);
         }
 
         [HttpPost]
@@ -78,15 +74,15 @@ namespace EmployeeManagement.Api.Controllers
 
             if (company is null) return NotFound(new { Message = "Company Not Found" });
 
-            var data = await _departmentService.GetSingleAsync(m => m.Name == request.Name && m.CompanyId == request.CompanyId && m.Id != request.Id);
+            var data = await _departmentService.GetSingleAsync(m => m.Name == request.Name && m.CompanyId == request.CompanyId 
+                                                                                           && m.Id != request.Id);
 
             if (data is not null) return BadRequest(new { Message = "This Department Already Exists in the same Company" });
         
-            var result = await _departmentService.UpdateAsync(id, request);
+            var result = await _departmentService.UpdateAsync(id, request);          
 
-            if (!result) return NotFound(new { Message = "Department Not Found" });
-
-            return Ok(new { Message = "Department Updated Successfully" });
+            return result ? Ok(new { Message = "Department Updated Successfully" })
+                          : NotFound(new { Message = "Department Not Found" });
         }
 
         [HttpDelete("{id}")]
@@ -94,9 +90,8 @@ namespace EmployeeManagement.Api.Controllers
         {
             var result = await _departmentService.RemoveAsync(id);
 
-            if (!result) return NotFound(new { Message = "Department Not Found" });
-
-            return Ok(new { Message = "Department Deleted Successfully" });
+            return result ? Ok(new { Message = "Department Deleted Successfully" })
+                          : NotFound(new { Message = "Department Not Found" });
         }
     }
 }

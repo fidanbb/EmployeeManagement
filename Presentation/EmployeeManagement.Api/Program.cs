@@ -3,6 +3,7 @@ using EmployeeManagement.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using EmployeeManagement.Application.Extensions;
 using EmployeeManagement.Persistence.Extensions;
+using EmployeeManagement.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
 
 app.UseHttpsRedirection();
 
