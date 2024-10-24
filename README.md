@@ -31,41 +31,44 @@ This project is an ASP.NET Core 6.0-based backend API for managing employee data
 
   ### Setting Up the Project
 
-1. **Clone the Repository**:
+1. **Clone the Repository:**
    
    ```bash
    git clone https://github.com/fidanbb/EmployeeManagement.git
-2. **Set up the database**:
+2. **Set up the database:**
    
    Open the appsettings.Development.json file and configure the connection string:
    ```json
    "ConnectionStrings": {
    "DefaultConnection": "Server=YOUR_SERVER;initial Catalog=EmployeeManagementDb;integrated Security=true; TrustServerCertificate=true;"    },
-
-3. **Change Directory**:
+3. **Restore Dependencies:**
    
-   Navigate to the API Project directory and run the below command:
-   ```bash
-   cd Presentation/EmployeeManagement.Api
-   
-4. **Restore Dependencies**:
-   
-   Before running the application, ensure all required packages are installed. You can do this by running the following command:
+   Ensure all required packages are installed:
    
    ```bash
       dotnet restore
    
-5. **Apply Migrations:**:
+4. **Change Directory:**
+   
+   Navigate to the API Project directory and run the below command:
+   ```bash
+   cd Presentation/EmployeeManagement.Api
+     
+5. **Apply Migrations:**
    
    Run the following command to apply migrations and create the database:
    
    ```bash
       dotnet ef database update
    
-6. **Build and run the project:**:
+6. **Build project:**
    
    ```bash
      dotnet build
+   
+7. **Run project:**
+   
+   ```bash
      dotnet run
 
 ## API Documentation
